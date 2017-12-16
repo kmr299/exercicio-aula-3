@@ -26,7 +26,7 @@ namespace Api
         public void ConfigureServices(IServiceCollection services)
         {
             var tokenSecretKey = Convert.FromBase64String(Configuration["TokenSecretKey"]);
-
+            
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(opt =>
             {
@@ -48,11 +48,16 @@ namespace Api
                     // Token will only be valid if not expired yet, with 5 minutes clock skew.
                     ValidateLifetime = true,
                     RequireExpirationTime = true,
-                    ClockSkew = TimeSpan.MaxValue 
+                    ClockSkew = TimeSpan.MaxValue
                 };
             });
 
-            services.AddMvc();
+            services
+                .AddMvc()
+                .AddJsonOptions(opt =>
+                {
+                    opt.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
