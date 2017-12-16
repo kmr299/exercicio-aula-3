@@ -1,5 +1,4 @@
 ﻿using ExercicioAula3.Data;
-using ExercicioAula3.Marvel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,9 +61,10 @@ namespace ExercicioAula3
 
                 switch (Console.ReadLine())
                 {
-                    case "0":
-                        break;
                     case "1":
+                       
+                        break;
+                    case "2":
                         break;
                 }
             }
