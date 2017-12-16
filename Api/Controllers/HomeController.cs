@@ -14,9 +14,9 @@ namespace Api.Controllers
             {
                 return Ok(new
                 {
-                    Usuarios = context.Usuarios.ToListAsync(),
-                    Listas = context.Listas.ToListAsync(),
-                    Tarefas = context.Tarefas.ToListAsync()
+                    Usuarios = await context.Usuarios.ToListAsync(),
+                    Listas = await context.Listas.ToListAsync(),
+                    Tarefas = await context.Tarefas.ToListAsync()
                 });
             }
         }
